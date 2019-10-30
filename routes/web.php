@@ -14,3 +14,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/wilayah/{id}','BalaiController@balai');
 
 Route::get('/balai/{id}', 'BalaiController@show');
+
+Route::get('/paket/{id}', 'PaketController@show');

@@ -32,7 +32,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text"><a href="/balai">Jumlah Balai</a></span>
                             <span class="info-box-number">
-                                        {{$data_rekap->count()}}
+                                        {{$balai->count()}}
                                         <small>balai</small>
                             </span>
                         </div>
@@ -43,7 +43,7 @@
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-building"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text"><a href="/satker">Jumlah Satker</a></span>
-                                <span class="info-box-number">{{$data_rekap->count()}}<small>satker</small></span>
+                                <span class="info-box-number">{{$satker->count()}}<small>satker</small></span>
                             </div>
                         </div>
                     </div>

@@ -28,6 +28,8 @@ class HomeController extends Controller
     
     public function index()
     {
+        $balai=Balai::get();
+        $satker=Satker::get();
         $data_rekap = DB::table('wilayah')
             ->join('balai','wilayah.id','=','balai.wilayah_id')
             ->join('satker','balai.id','=','satker.balai_id')
@@ -37,8 +39,8 @@ class HomeController extends Controller
             //->groupBy('balai.id','balai.nmbalai')
             //->groupBy('balai.id','balai.nmbalai')
             ->get();
-        //dd($data_rekap);
-        return view('home', compact('data_rekap'));
+        //dd($balai);
+        return view('home', compact('data_rekap','balai','satker'));
     }
     
 }

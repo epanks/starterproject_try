@@ -118,13 +118,13 @@
                                 
                             </tr>
     
-                        @foreach ($data_rekap1 as $no => $balai)                      
+                        @foreach ($wilayah->balai as $no => $balai)                      
                             <tr>
                                 <td>{{++$no}}</td>
                                 <td><a href="/balai/{{$balai->id}}">{{$balai->nmbalai}}</td>
-                                <td>{{$balai->pagurmp}}</td>
+                                {{-- <td>{{$balai->pagurmp}}</td>
                                 <td>{{$balai->keuangan}}</td>
-                                <td>{{$balai->progres_fisik}}</td>
+                                <td>{{$balai->progres_fisik}}</td> --}}
                                 <td></td>
                                 <td></td>
                                 <td></td>

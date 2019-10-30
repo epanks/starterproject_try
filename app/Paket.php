@@ -17,4 +17,9 @@ class Paket extends Model
     {
         return $this->belongsTo(Balai::class);
     }
+
+    public function masalah()
+    {
+        return $this->hasMany(Masalah::class);
+    }
 }

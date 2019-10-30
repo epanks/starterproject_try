@@ -34,11 +34,11 @@ class BalaiController extends Controller
             ->get();
         //dd($wilayah);
         //dd($data_rekap1);
-        return view('balai.index', compact('wilayah','balai','satker','data_rekap','data_rekap1'));
+        return view('balai.index', compact('wilayah','data_rekap','data_rekap1'));
     }
 
     public function show($id)
-    {
+    {   $satker=Balai::find($id);
         $balai=Balai::with('satker','paket')->find($id);
         $data_rekap = DB::table('balai')
             ->join('satker','balai.id','=','satker.balai_id')
@@ -56,7 +56,7 @@ class BalaiController extends Controller
             ->groupBy('nmbalai')
             ->orderBy('balai.id','asc')
             ->first();
-        //dd($balai);
+        //dd($satker);
         //dd($data_rekap);
         return view('balai.show', compact('balai','satker','data_rekap','data_rekap1'));
     }
