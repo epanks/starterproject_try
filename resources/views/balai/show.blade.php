@@ -93,8 +93,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Daftar Balai</h3>
-                </div>        
+                    <h3 class="card-title">Daftar Paket</h3>
+                    <div class="card-tools">
+                        <a href="/create_paket/{{ $balai->id }}" class="btn btn-success">
+                            Add New
+                            <i class="fas fa-user-plus fa-fw"></i>
+                        </a>
+                    </div>
+                </div> 
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
                         <tbody>
@@ -119,7 +125,15 @@
                                 <td>{{$balai->progres_fisik}}</td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>
+                                    <a href="/paket/{{$balai->id}}/edit">
+                                        <i class="fa fa-edit blue"></i>
+                                    </a>
+                                    /
+                                    <a href="/paket/{{$balai->id}}/delete">
+                                        <i class="fa fa-trash red" onclick="return confirm('Yakin data mau dihapus')"></i>
+                                    </a>
+                                </td>
                             </tr>
                             
                         @endforeach
@@ -129,7 +143,7 @@
                 </div>        
             </div>       
         </div>    
-    </div>
+    </div>    
 </div>
 
 @endsection

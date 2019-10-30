@@ -7,6 +7,8 @@ use App\Balai;
 use App\Wilayah;
 use App\Satker;
 use App\Paket;
+use App\Tblsatoutput;
+use App\Tblkdoutput;
 use App\Masalah;
 use DB;
 
@@ -20,5 +22,41 @@ class PaketController extends Controller
         //dd($masalah);
         //dd($data_rekap1);
         return view('paket.show', compact('paket'));
+    }
+
+    public function create($id)
+    {
+        $dtsatker1=Satker::find($id)->balai;
+        $dtsatker=$dtsatker1->satker;
+        $dtsatoutput=Tblsatoutput::get();
+        $dtkdoutput=Tblkdoutput::get(); 
+        //dd($dtsatker);
+        return view('paket.create',compact('dtsatker','dtsatker1','dtsatoutput','dtkdoutput'));
+    }
+
+    public function store(Request $request)
+    {
+
+        // $insert_paket= new Paket;
+        // $insert_paket->kdsatker = request('kdsatker');
+        // $insert_paket->nmpaket = request('nmpaket');
+        // $insert_paket->trgoutput = request('trgoutput');
+        // $insert_paket->kdsatker = request('kdsatker');
+        // $insert_paket->satoutput = request('satoutput');
+        // $insert_paket->trgoutcome = request('trgoutcome');
+        // $insert_paket->satoutcome = request('satoutcome');
+        // $insert_paket->kdoutput = request('kdoutput');
+        // $insert_paket->pagurmp = request('pagurmp');
+        // $insert_paket->pagurmawal = request('pagurmawal');
+        // $insert_paket->keuangan = request('keuangan');
+        // $insert_paket->progres_fisik = request('progres_fisik');
+        // $insert_paket->TahunFisik = request('TahunFisik');
+        // $insert_paket->save();
+
+        
+        // return redirect ('/balai')->with('sukses', 'Data berhasil diinput');
+        Paket::create($request->all());
+
+        return redirect()->back()->with('sukses', 'Data berhasil diinput');
     }
 }
