@@ -116,13 +116,13 @@
                                 
                             </tr>
     
-                        @foreach ($balai->paket as $no => $balai)                      
+                        @foreach ($satker->paket as $no => $balai)                      
                             <tr>
                                 <td>{{++$no}}</td>
                                 <td><a href="/paket/{{$balai->id}}">{{$balai->nmpaket}}</td>
-                                <td>{{$balai->pagurmp}}</td>
-                                <td>{{$balai->keuangan}}</td>
-                                <td>{{$balai->progres_fisik}}</td>
+                                <td class="text-right">{{number_format($balai->pagurmp)}}</td>
+                                <td class="text-right">{{number_format($balai->keuangan)}}</td>
+                                <td class="text-right">{{number_format(($balai->progres_fisik),2)}}</td>
                                 <td></td>
                                 <td></td>
                                 <td>

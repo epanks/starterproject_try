@@ -26,15 +26,15 @@ class PaketController extends Controller
 
     public function create($id)
     {
-        $dtsatker1=Satker::find($id)->balai;
+        $dtsatker1=Balai::find($id);
         $dtsatker=$dtsatker1->satker;
         $dtsatoutput=Tblsatoutput::get();
         $dtkdoutput=Tblkdoutput::get(); 
-        //dd($dtsatker);
+        //dd($dtsatker1);
         return view('paket.create',compact('dtsatker','dtsatker1','dtsatoutput','dtkdoutput'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
 
         // $insert_paket= new Paket;
@@ -57,12 +57,12 @@ class PaketController extends Controller
         // return redirect ('/balai')->with('sukses', 'Data berhasil diinput');
         Paket::create($request->all());
 
-        return redirect()->back()->with('sukses', 'Data berhasil diinput');
+        return redirect()->route('balai.show',$id)->with('sukses', 'Data berhasil diinput');
     }
 
     public function edit($id)
     {
-        $data_paket=Paket::with('paket7','tblsatoutput','satker','tblkdoutput')->find($id);
+        $data_paket=Paket::find($id);
         $dtsatoutput=Tblsatoutput::get();
         $dtkdoutput=Tblkdoutput::get();  
         $dtsatker=Satker::get();     
@@ -80,12 +80,11 @@ class PaketController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'progres_keu' => 'numeric|between:0,100',
             'progres_fisik' => 'numeric|between:0,100'
         ]);
-        $data_paket = Paket::with('paket7','tblsatoutput')->find($id);
+        $data_paket = Paket::find($id);
         $data_paket->update($request->all());
-        return redirect('/paket')->with('sukses', 'Data berhasil diupdate');
+        return redirect()->back()->with('sukses', 'Data berhasil diupdate');
     }
 
 

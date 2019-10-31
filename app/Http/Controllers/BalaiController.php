@@ -38,8 +38,8 @@ class BalaiController extends Controller
     }
 
     public function show($id)
-    {   $satker=Balai::find($id);
-        $balai=Balai::with('satker','paket')->find($id);
+    {   $balai=Balai::find($id);
+        $satker=Balai::with('satker','paket')->find($id);
         $data_rekap = DB::table('balai')
             ->join('satker','balai.id','=','satker.balai_id')
             ->join('paket','satker.kdsatker','=','paket.kdsatker')

@@ -92,7 +92,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Daftar Balai</h3>
+                    <h3 class="card-title">Note</h3>
+                    <div class="card-tools">
+                        <a href="/create/{{ $paket->id }}" class="btn btn-success">
+                            Add New
+                            <i class="fas fa-user-plus fa-fw"></i>
+                        </a>
+                    </div>
                 </div>        
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">

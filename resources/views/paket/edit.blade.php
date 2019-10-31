@@ -57,16 +57,16 @@
                     <option value="apalagi" @if($data_paket->satoutcome == "apalagi")selected @endif>Apalagi ya</option>
                 </select>     
             </div>
-            <div class="form-group{{$errors->has('progres_keu') ? 'has-error' : ''}}">
-                <label for="progres_keu">Progres Keuangan</label>
-                <input name="progres_keu" type="number" step="any" class="form-control" id="progres_keu" placeholder="Progres Keuangan" value="{{$data_paket->paket7->progres_keu}}">
-                @if($errors->has('progres_keu'))
-                    <span class="help-block">{{$errors->first('progres_keu')}}</span>
+            <div class="form-group{{$errors->has('keuangan') ? 'has-error' : ''}}">
+                <label for="keuangan">Progres Keuangan</label>
+                <input name="keuangan" type="number" class="form-control" id="keuangan" placeholder="Progres Keuangan" value="{{$data_paket->keuangan}}">
+                @if($errors->has('keuangan'))
+                    <span class="help-block">{{$errors->first('keuangan')}}</span>
                 @endif
             </div>
             <div class="form-group{{$errors->has('progres_fisik') ? 'has-error' : ''}}">
                 <label for="progres_fisik">Progres Fisik</label>
-                <input name="progres_fisik" type="number" step="any" class="form-control" id="progres_fisik" placeholder="Progres Fisik" value="{{$data_paket->paket7->progres_fisik}}">
+                <input name="progres_fisik" type="number" step="any" class="form-control" id="progres_fisik" placeholder="Progres Fisik" value="{{$data_paket->progres_fisik}}">
                 @if($errors->has('progres_fisik'))
                     <span class="help-block">{{$errors->first('progres_fisik')}}</span>
                 @endif
@@ -80,8 +80,8 @@
                 </select>                
             </div>
             <label class="form-group">
-                <label for="ta">Tahun</label>
-                <input name="ta" type="number" class="form-control" id="ta" placeholder="Progres Fisik" value="{{$data_paket->TahunFisik}}">
+                <label for="TahunFisik">Tahun</label>
+                <input name="TahunFisik" type="number" class="form-control" id="TahunFisik" placeholder="Progres Fisik" value="{{$data_paket->TahunFisik}}">
             </label>  
             <div class="modal-footer">                
                 <button type="submit" class="btn btn-warning">Update</button>
