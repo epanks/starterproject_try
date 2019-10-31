@@ -24,3 +24,7 @@ Route::get('/paket/{id}/delete', 'PaketController@delete');
 
 Route::get('/create/{id}','MasalahController@create')->name('masalah.create');
 Route::post('/create/{id}','MasalahController@store');
+Route::get('/masalah/{id}/edit', 'MasalahController@edit');
+Route::post('/masalah/{id}/update', 'MasalahController@update');
+
+Route::get('/masalah/{id}/delete', 'MasalahController@delete');

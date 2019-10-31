@@ -118,7 +118,15 @@
                                 <td>{{$paket->masalah}}</td>
                                 <td>{{$paket->tindaklanjut}}</td>
                                 <td>{{$paket->keterangan}}</td>
-                                <td></td>
+                                <td>
+                                    <a href="/masalah/{{$paket->id}}/edit">
+                                        <i class="fa fa-edit blue"></i>
+                                    </a>
+                                    /
+                                    <a href="/masalah/{{$paket->id}}/delete">
+                                        <i class="fa fa-trash red" onclick="return confirm('Yakin data mau dihapus')"></i>
+                                    </a>
+                                </td>
                                 
                             </tr>
                             
