@@ -59,4 +59,41 @@ class PaketController extends Controller
 
         return redirect()->back()->with('sukses', 'Data berhasil diinput');
     }
+
+    public function edit($id)
+    {
+        $data_paket=Paket::with('paket7','tblsatoutput','satker','tblkdoutput')->find($id);
+        $dtsatoutput=Tblsatoutput::get();
+        $dtkdoutput=Tblkdoutput::get();  
+        $dtsatker=Satker::get();     
+        //dd($data_paket);  
+        return view('paket/edit', compact('data_paket','dtsatoutput','dtsatker','dtkdoutput'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'progres_keu' => 'numeric|between:0,100',
+            'progres_fisik' => 'numeric|between:0,100'
+        ]);
+        $data_paket = Paket::with('paket7','tblsatoutput')->find($id);
+        $data_paket->update($request->all());
+        return redirect('/paket')->with('sukses', 'Data berhasil diupdate');
+    }
+
+
+    public function delete($id)
+    {
+        $data_paket = Paket::find($id);
+        $data_paket->delete($data_paket);
+        return redirect()->back()->with('sukses', 'Data berhasil dihapus');
+    }
+
 }
