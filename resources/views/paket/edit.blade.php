@@ -24,6 +24,10 @@
                 <input name="nmpaket" type="text" class="form-control" id="nmpaket" placeholder="Nama Paket" value="{{$data_paket->nmpaket}}">
             </div>
             <div class="form-group">
+                <label for="pagurmawal">Pagu RM Awal</label>
+                <input name="pagurmawal" type="number" step="any" class="form-control" id="pagurmawal" placeholder="Pagu RM Awal" value="{{$data_paket->pagurmawal}}">
+            </div>
+            <div class="form-group">
                 <label for="pagurmp">Pagu</label>
                 <input name="pagurmp" type="number" step="any" class="form-control" id="pagurmp" placeholder="Pagu" value="{{$data_paket->pagurmp}}">
             </div>

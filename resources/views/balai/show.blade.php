@@ -60,7 +60,19 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-4 col-6">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3><sup style="font-size: 20px">Rp</sup>{{number_format($balai->paket->sum('keuangan'))}}</h3>                        
+                            <p>Keuangan</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>{{number_format($data_rekap->avg('progres_keu'),2)}}</h3>                        
@@ -72,7 +84,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{number_format($data_rekap->avg('progres_fisik'),2)}}</h3>                        
@@ -108,23 +120,22 @@
                                 <th>No</th>
                                 <th>Nama Satker</th>
                                 <th>Pagu</th>
-                                <th>Rencana Keuangan</th>
-                                <th>Rencana Fisik</th>
+                                <th>Keuangan</th>
                                 <th>Progres Keuangan</th>
-                                <th>Progres Fisik</th>
-                                <th>Satker ID</th>
+                                <th>Rencana Fisik</th>
+                                <th>Modify</th>
                                 
                             </tr>
     
-                        @foreach ($satker->paket as $no => $balai)                      
+                        @foreach ($satker->paket as $no => $balai)      
+                           
                             <tr>
                                 <td>{{++$no}}</td>
                                 <td><a href="/paket/{{$balai->id}}">{{$balai->nmpaket}}</td>
                                 <td class="text-right">{{number_format($balai->pagurmp)}}</td>
                                 <td class="text-right">{{number_format($balai->keuangan)}}</td>
+                                <td class="text-right">{{number_format($balai->progres_keu)}}</td>
                                 <td class="text-right">{{number_format(($balai->progres_fisik),2)}}</td>
-                                <td></td>
-                                <td></td>
                                 <td>
                                     <a href="/paket/{{$balai->id}}/edit">
                                         <i class="fa fa-edit blue"></i>

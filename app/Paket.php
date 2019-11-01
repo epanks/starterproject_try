@@ -25,4 +25,10 @@ class Paket extends Model
     {
         return $this->hasMany(Masalah::class);
     }
+
+    
+    public function getPercentase() {
+        return $this->keuangan->DB::raw('keuangan/pagurmp');
+        
+    }
 }

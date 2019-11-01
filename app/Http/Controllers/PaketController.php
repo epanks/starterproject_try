@@ -19,6 +19,7 @@ class PaketController extends Controller
         
         $paket=Paket::with('masalah')->find($id);
         
+        
         //dd($masalah);
         //dd($data_rekap1);
         return view('paket.show', compact('paket'));
