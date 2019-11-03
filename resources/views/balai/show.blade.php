@@ -134,7 +134,7 @@
                                 <td><a href="/paket/{{$balai->id}}">{{$balai->nmpaket}}</td>
                                 <td class="text-right">{{number_format($balai->pagurmp)}}</td>
                                 <td class="text-right">{{number_format($balai->keuangan)}}</td>
-                                <td class="text-right">{{number_format($balai->progres_keu)}}</td>
+                                <td class="text-right">{{number_format((($balai->keuangan/$balai->pagurmp)*100),2)}}</td>
                                 <td class="text-right">{{number_format(($balai->progres_fisik),2)}}</td>
                                 <td>
                                     <a href="/paket/{{$balai->id}}/edit">

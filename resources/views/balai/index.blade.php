@@ -44,19 +44,10 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box mb-3">
-                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-        
-                        <div class="info-box-content">
-                            <span class="info-box-text">New Members</span>
-                            <span class="info-box-number">2,000</span>
-                        </div>
-                    </div>
-                </div> --}}
+                
             </div>
             <div class="row">                
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-3 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3><sup style="font-size: 20px">Rp</sup>{{number_format($data_rekap->sum('pagurmp'))}}</h3>                        
@@ -69,6 +60,18 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3><sup style="font-size: 20px">Rp</sup>{{number_format($data_rekap->sum('keuangan'),2)}}</h3>                        
+                            <p>Keuangan</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>{{number_format($data_rekap->avg('progres_keu'),2)}}</h3>                        
@@ -80,7 +83,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{number_format($data_rekap->avg('progres_fisik'),2)}}</h3>                        
@@ -104,30 +107,26 @@
                     <h3 class="card-title">Daftar Balai</h3>
                 </div>        
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover">
+                    <table class="table table-hover table-bordered">
                         <tbody>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Satker</th>
-                                <th>Pagu</th>
-                                <th>Rencana Keuangan</th>
-                                <th>Rencana Fisik</th>
-                                <th>Progres Keuangan</th>
-                                <th>Progres Fisik</th>
-                                <th>Satker ID</th>
-                                
+                                <th class="text-center">Nama Balai</th>
+                                <th class="text-center">Pagu</th>
+                                <th class="text-center">Keuangan</th>
+                                <th class="text-center">Progres Keuangan</th>
+                                <th class="text-center">Progres Fisik</th>
                             </tr>
     
                         @foreach ($wilayah->balai as $no => $balai)                      
                             <tr>
                                 <td>{{++$no}}</td>
                                 <td><a href="/balai/{{$balai->id}}">{{$balai->nmbalai}}</td>
-                                {{-- <td>{{$balai->pagurmp}}</td>
-                                <td>{{$balai->keuangan}}</td>
-                                <td>{{$balai->progres_fisik}}</td> --}}
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                
+                                <td class="text-right">{{number_format($balai->paket->sum('pagurmp'))}}</td>
+                                <td class="text-right">{{number_format($balai->paket->sum('keuangan'))}}</td>
+                                <td class="text-right">{{number_format(($balai->paket->sum('keuangan')/$balai->paket->sum('pagurmp')*100),2)}}</td>
+                                <td class="text-right">{{number_format($balai->paket->avg('progres_fisik'),2)}}</td>
                             </tr>
                             
                         @endforeach

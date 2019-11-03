@@ -17,11 +17,11 @@ class PaketController extends Controller
     public function show($id)
     {
         
-        $paket=Paket::with('masalah')->find($id);
+        $paket=Paket::with('masalah','tblsatoutput')->find($id);
         
         
         //dd($masalah);
-        //dd($data_rekap1);
+        //dd($paket);
         return view('paket.show', compact('paket'));
     }
 

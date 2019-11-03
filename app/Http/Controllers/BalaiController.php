@@ -13,7 +13,7 @@ class BalaiController extends Controller
 {
     public function balai($id)
     {
-        $wilayah=Wilayah::with('balai','satker')->find($id);
+        $wilayah=Wilayah::with('balai','satker','paket')->find($id);
         //$balai=$wilayah->get
         $data_rekap = DB::table('wilayah')
             ->join('balai','wilayah.id','=','balai.wilayah_id')
@@ -22,30 +22,23 @@ class BalaiController extends Controller
             ->select('wilayah.*','balai.*','paket.*')
             ->where('wilayah_id',$id)
             ->get();
-
-        $data_rekap1 = DB::table('wilayah')
-            ->join('balai','wilayah.id','=','balai.wilayah_id')
-            ->join('satker','balai.id','=','satker.balai_id')
-            ->join('paket','satker.kdsatker','=','paket.kdsatker')
-            ->select('wilayah.*','balai.*','paket.*')
-            ->where('wilayah_id',$id)
-            ->groupBy('nmbalai')
-            ->orderBy('balai.id','asc')
-            ->get();
+        
         //dd($wilayah);
         //dd($data_rekap1);
-        return view('balai.index', compact('wilayah','data_rekap','data_rekap1'));
+        return view('balai.index', compact('wilayah','data_rekap'));
     }
 
     public function show($id)
     {   $balai=Balai::find($id);
         $satker=Balai::with('satker','paket')->find($id);
+        //$percent=Paket::select('')
         $data_rekap = DB::table('balai')
             ->join('satker','balai.id','=','satker.balai_id')
             ->join('paket','satker.kdsatker','=','paket.kdsatker')
             ->select('balai.*','paket.*')
             ->where('balai.id',$id)
             ->get();
+        
 
         $data_rekap1 = DB::table('wilayah')
             ->join('balai','wilayah.id','=','balai.wilayah_id')

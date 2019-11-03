@@ -31,7 +31,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text"><a href="/paket">Output</a></span>
                             <span class="info-box-number">{{$paket->trgoutput}}
-                                    <small>{{$paket->satoutput}}</small>
+                                    <small>{{$paket->tblsatoutput}}</small>
                             </span>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text"><a href="/paket">Outcome</a></span>
                             <span class="info-box-number">{{$paket->trgoutcome}}
-                                    <small>Rp.</small>
+                                    <small> {{$paket->satoutcome}}</small>
                             </span>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <p>Progres Keuangan</p>
-                            <h3>{{number_format(($paket->progres_keu),2)}}<sup style="font-size: 20px">%</sup>    </h3>                   
+                            <h3>{{number_format((($paket->keuangan/$paket->pagurmp)*100),2)}}<sup style="font-size: 20px">%</sup>    </h3>                   
                         </div>
                         <div class="icon">
                             <i class="fas fa-chart-bar"></i>
