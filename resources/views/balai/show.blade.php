@@ -75,7 +75,7 @@
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{number_format($data_rekap->avg('progres_keu'),2)}}</h3>                        
+                            <h3>{{number_format(($data_rekap->sum('keuangan')/$data_rekap->sum('pagurmp')*100),2)}}</h3>                        
                             <p>Progres Keuangan</p>
                         </div>
                         <div class="icon">
