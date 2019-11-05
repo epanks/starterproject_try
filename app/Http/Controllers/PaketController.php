@@ -14,15 +14,26 @@ use DB;
 
 class PaketController extends Controller
 {
-    public function show($id)
+    public function index()
     {
         
-        $paket=Paket::with('masalah','tblsatoutput')->find($id);
+        $data_paket=Paket::paginate(10);
         
         
         //dd($masalah);
         //dd($paket);
-        return view('paket.show', compact('paket'));
+        return view('paket.index', compact('data_paket'));
+    }
+    
+    public function show($id)
+    {
+        
+        $paket=Paket::with('masalah','tblsatoutput')->find($id);
+        $output=$paket->tblsatoutput;
+        
+        //dd($output);
+        //dd($paket);
+        return view('paket.show', compact('paket','output'));
     }
 
     public function create($id)
@@ -83,9 +94,11 @@ class PaketController extends Controller
         $this->validate($request, [
             'progres_fisik' => 'numeric|between:0,100'
         ]);
-        $data_paket = Paket::find($id);
+        $data_paket = Paket::with('satker','balai')->find($id);
+        $balai=$data_paket->satker->balai;
+        //dd($balai->id);
         $data_paket->update($request->all());
-        return redirect()->back()->with('sukses', 'Data berhasil diupdate');
+        return redirect()->route('balai.show',$balai->id)->with('sukses', 'Data berhasil diupdate');
     }
 
 
@@ -94,6 +107,18 @@ class PaketController extends Controller
         $data_paket = Paket::find($id);
         $data_paket->delete($data_paket);
         return redirect()->back()->with('sukses', 'Data berhasil dihapus');
+    }
+
+
+    public function kdoutput()
+    {
+        
+        $data_kdoutput=Tblkdoutput::paginate(10);
+        
+        
+        //dd($masalah);
+        //dd($paket);
+        return view('paket.kdoutput', compact('data_kdoutput'));
     }
 
 }

@@ -10,8 +10,8 @@
         </div>  
             <h1 class="profile-username text-center">Kementerian Pekerjaan Umum dan Perumahan Rakyat</h1>  
             <p class="text-muted text-center">Pusat Air Tanah dan Air Baku</p>
-            <h1 class="profile-username text-center">{{{$paket->nmpaket}}}</h1>
-        </div>
+            <h1 class="profile-username text-center"></h1>
+        {{-- </div>
             <div class="row mt-5">                
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
@@ -31,7 +31,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text"><a href="/paket">Output</a></span>
                             <span class="info-box-number">{{$paket->trgoutput}}
-                                    <small>{{$output}}</small>
+                                    <small>{{$paket->tblsatoutput}}</small>
                             </span>
                         </div>
                     </div>
@@ -87,17 +87,17 @@
                 </div>  
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="row mt-3">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Note</h3>
                     <div class="card-tools">
-                        <a href="/create/{{ $paket->id }}" class="btn btn-success">
+                        {{-- <a href="/create/{{ $paket->id }}" class="btn btn-success">
                             Add New
                             <i class="fas fa-user-plus fa-fw"></i>
-                        </a>
+                        </a> --}}
                     </div>
                 </div>        
                 <div class="card-body table-responsive p-0">
@@ -112,18 +112,18 @@
                                 
                             </tr>
     
-                        @foreach ($paket->masalah as $no => $paket)                      
+                        @foreach ($data_paket as $no => $paket)                      
                             <tr>
-                                <td>{{++$no}}</td>
-                                <td>{{$paket->masalah}}</td>
-                                <td>{{$paket->tindaklanjut}}</td>
-                                <td>{{$paket->keterangan}}</td>
+                                <td>{{$paket->id}}</td>
+                                <td>{{$paket->nmpaket}}</td>
+                                <td class="text-right">{{number_format(($paket->pagurmp),2)}}</td>
+                                <td>{{$paket->trgoutput}}</td>
                                 <td>
-                                    <a href="/masalah/{{$paket->id}}/edit">
+                                    <a href="/paket/{{$paket->id}}/edit">
                                         <i class="fa fa-edit blue"></i>
                                     </a>
                                     /
-                                    <a href="/masalah/{{$paket->id}}/delete">
+                                    <a href="/paket/{{$paket->id}}/delete">
                                         <i class="fa fa-trash red" onclick="return confirm('Yakin data mau dihapus')"></i>
                                     </a>
                                 </td>
@@ -133,7 +133,7 @@
                         @endforeach
                         </tbody>
                     </table> 
-                    {{-- {{$paket->links()}} --}}
+                    {{$data_paket->links()}}
                 </div>        
             </div>       
         </div>    

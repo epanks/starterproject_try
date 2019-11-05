@@ -7,6 +7,7 @@ use App\Balai;
 use App\Wilayah;
 use App\Satker;
 use App\Paket;
+use App\Tblkdoutput;
 use DB;
 
 class BalaiController extends Controller
@@ -24,7 +25,7 @@ class BalaiController extends Controller
             ->get();
         
         //dd($wilayah);
-        //dd($data_rekap1);
+        //dd($data_rekap);
         return view('balai.index', compact('wilayah','data_rekap'));
     }
 
@@ -35,7 +36,9 @@ class BalaiController extends Controller
         $data_rekap = DB::table('balai')
             ->join('satker','balai.id','=','satker.balai_id')
             ->join('paket','satker.kdsatker','=','paket.kdsatker')
-            ->select('balai.*','paket.*')
+            ->join('tblkdoutput','paket.kdoutput','=','tblkdoutput.kdoutput')
+            ->select('wilayah.*','balai.*','paket.*','tblkdoutput.*')
+            ->select('balai.*','paket.*','tblkdoutput.*')
             ->where('balai.id',$id)
             ->get();
         
