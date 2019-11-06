@@ -11,6 +11,7 @@ use App\Tblsatoutput;
 use App\Tblkdoutput;
 use App\Masalah;
 use DB;
+use PDF;
 
 class PaketController extends Controller
 {
@@ -120,5 +121,7 @@ class PaketController extends Controller
         //dd($paket);
         return view('paket.kdoutput', compact('data_kdoutput'));
     }
+
+    
 
 }

@@ -31,7 +31,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text"><a href="/paket">Output</a></span>
                             <span class="info-box-number">{{$paket->trgoutput}}
-                                    <small>{{$output}}</small>
+                                    <small>{{$output->nmsatoutput}}</small>
                             </span>
                         </div>
                     </div>

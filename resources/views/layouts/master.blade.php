@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       }
     </style>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-collapse sidebar-mini">
 <div class="wrapper" id="app">
 
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -73,30 +73,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           {{-- <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-building green"></i>
-              <p>
-                Wilayah
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="/balai/1/wil_profile" class="nav-link">
-                        <i class="fas fa-map nav-icon purple"></i>
-                        <p>Wilayah Barat</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/balai/2/wil_profile" class="nav-link">
-                        <i class="fas fa-building nav-icon purple"></i>
-                        <p>Wilayah Timur</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-          </li> --}}
-          <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-building green"></i>
                   <p>
@@ -104,26 +80,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>                
-                    <ul class="nav nav-treeview">
-                        {{-- <li class="nav-item">
-                            <a href="/wilayah" class="nav-link">
-                            <i class="fas fa-map nav-icon purple"></i>
-                            <p>Wilayah</p>
-                            </a>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a href="/balai" class="nav-link">
-                            <i class="fas fa-building nav-icon purple"></i>
-                            <p>Balai</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/satker" class="nav-link">
-                            <i class="fas fa-users nav-icon teal"></i>
-                            <p>Satker</p>
-                            </a>
-                        </li>
-                    </ul>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="/balai" class="nav-link">
+                        <i class="fas fa-building nav-icon purple"></i>
+                        <p>Balai</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/satker" class="nav-link">
+                        <i class="fas fa-users nav-icon teal"></i>
+                        <p>Satker</p>
+                        </a>
+                    </li>
+                  </ul>
                 </li>
               </li>
           <li class="nav-item has-treeview">
@@ -158,13 +128,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
             <ul class="nav nav-treeview">
-              {{-- <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-building nav-icon yellow"></i>
-                  <p>Balai</p>
-                </a>
-              </li> --}}
-
               <li class="nav-item">
                 <a href="/paket" class="nav-link">
                   <i class="nav-icon fas fa-list-alt red"></i>
@@ -351,7 +314,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               Profile
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   <i class="nav-icon fa fa-power-off red"></i>

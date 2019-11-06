@@ -9,6 +9,7 @@ use App\Satker;
 use App\Paket;
 use App\Tblkdoutput;
 use DB;
+use PDF;
 
 class BalaiController extends Controller
 {
@@ -55,5 +56,21 @@ class BalaiController extends Controller
         //dd($satker);
         //dd($data_rekap);
         return view('balai.show', compact('balai','satker','data_rekap','data_rekap1'));
+    }
+    public function cetak_pdf($id)
+    {
+        $balai=Balai::find($id);
+        $satker=Balai::with('satker','paket')->find($id);
+        $data_rekap = DB::table('balai')
+            ->join('satker','balai.id','=','satker.balai_id')
+            ->join('paket','satker.kdsatker','=','paket.kdsatker')
+            ->join('tblkdoutput','paket.kdoutput','=','tblkdoutput.kdoutput')
+            ->select('wilayah.*','balai.*','paket.*','tblkdoutput.*')
+            ->select('balai.*','paket.*','tblkdoutput.*')
+            ->where('balai.id',$id)
+            ->get();
+ 
+    	$pdf = PDF::loadview('/balai/paket_balai_pdf',['balai'=>$balai,'satker'=>$satker,'data_rekap'=>$data_rekap]);
+    	return $pdf->stream();
     }
 }

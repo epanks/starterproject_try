@@ -51,7 +51,7 @@
                 <div class="col-lg-4 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3><sup style="font-size: 20px">Rp</sup>{{number_format($balai->paket->sum('pagurmp'))}}</h3>                        
+                            <h4><sup style="font-size: 20px">Rp</sup>{{number_format($balai->paket->sum('pagurmp'))}}</h4>                        
                             <p>Jumlah Pagu</p>
                         </div>
                         <div class="icon">
@@ -63,7 +63,7 @@
                 <div class="col-lg-4 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3><sup style="font-size: 20px">Rp</sup>{{number_format($balai->paket->sum('keuangan'))}}</h3>                        
+                            <h4><sup style="font-size: 20px">Rp</sup>{{number_format($balai->paket->sum('keuangan'))}}</h4>                        
                             <p>Keuangan</p>
                         </div>
                         <div class="icon">
@@ -75,7 +75,7 @@
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{number_format(($data_rekap->sum('keuangan')/$data_rekap->sum('pagurmp')*100),2)}}</h3>                        
+                            <h4>{{number_format(($data_rekap->sum('keuangan')/$data_rekap->sum('pagurmp')*100),2)}}</h4>                        
                             <p>Progres Keuangan</p>
                         </div>
                         <div class="icon">
@@ -87,7 +87,7 @@
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>{{number_format($data_rekap->avg('progres_fisik'),2)}}</h3>                        
+                            <h4>{{number_format($data_rekap->avg('progres_fisik'),2)}}</h4>                        
                             <p>Progres Fisik</p>
                         </div>
                         <div class="icon">
@@ -107,6 +107,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Daftar Paket</h3>
                     <div class="card-tools">
+                            <a href="/balai/{{ $balai->id }}/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
                         <a href="/create_paket/{{ $balai->id }}" class="btn btn-success">
                             Add New
                             <i class="fas fa-user-plus fa-fw"></i>

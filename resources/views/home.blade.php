@@ -20,7 +20,7 @@
                                     Wilayah
                             </span>
                             <span class="info-box-number">                                        
-                                <small><a href="/wilayah/1">1. Wilayah Barat</a> </small><br/> 
+                                <small>1. Wilayah Barat</a> </small><br/> 
                                 <small><a href="/wilayah/2">2. Wilayah Timur</a></small>
                             </span>
                         </div>
@@ -72,7 +72,7 @@
                 <div class="col-lg-4 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3><sup style="font-size: 20px">Rp</sup>{{number_format($data_rekap->sum('pagurmp'))}}</h3>                        
+                            <h4><sup style="font-size: 20px">Rp</sup>{{number_format($data_rekap->sum('pagurmp'))}}</h4>                        
                             <p>Jumlah Pagu</p>
                         </div>
                         <div class="icon">
@@ -84,7 +84,7 @@
                 <div class="col-lg-4 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3><sup style="font-size: 20px">Rp</sup>{{number_format($data_rekap->sum('keuangan'),0)}}</h3>                        
+                            <h4><sup style="font-size: 20px">Rp</sup>{{number_format($data_rekap->sum('keuangan'),0)}}</h4>                        
                             <p>Progres Keuangan</p>
                         </div>
                         <div class="icon">
@@ -96,7 +96,7 @@
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{{number_format((($data_rekap->sum('keuangan')/$data_rekap->sum('pagurmp'))*100),2)}}<sup style="font-size: 20px">%</sup></h3> 
+                            <h4>{{number_format((($data_rekap->sum('keuangan')/$data_rekap->sum('pagurmp'))*100),2)}} %</h4> 
                             <p>Progres Keuangan</p>
                         </div>
                         <div class="icon">
@@ -107,7 +107,7 @@
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>{{number_format($data_rekap->avg('progres_fisik'),2)}}<sup style="font-size: 20px">%</sup></h3> 
+                            <h4>{{number_format($data_rekap->avg('progres_fisik'),2)}} %</h4> 
                             <p>Progres Fisik</p>
                         </div>
                         <div class="icon">

@@ -29,7 +29,7 @@ class Paket extends Model
 
     public function tblsatoutput()
     {
-        return $this->hasMany(Tblsatoutput::class,'satoutput','satoutput');
+        return $this->belongsTo(Tblsatoutput::class,'satoutput','satoutput');
     }
 
     public function wilayah()
