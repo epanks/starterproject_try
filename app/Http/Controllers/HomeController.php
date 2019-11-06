@@ -34,8 +34,7 @@ class HomeController extends Controller
             ->join('balai','wilayah.id','=','balai.wilayah_id')
             ->join('satker','balai.id','=','satker.balai_id')
             ->join('paket','satker.kdsatker','=','paket.kdsatker')
-            ->join('paket7','paket.id','=','paket7.id')
-            ->select('wilayah.*','balai.*','satker.*','paket.*','paket7.*')
+            ->select('wilayah.*','balai.*','satker.*','paket.*')
             //->groupBy('balai.id','balai.nmbalai')
             //->groupBy('balai.id','balai.nmbalai')
             ->get();

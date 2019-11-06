@@ -17,7 +17,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-building"></i></span>                
                         <div class="info-box-content">
-                            <span class="info-box-text"><a href="/balai">Balai</a></span>
+                            <span class="info-box-text">Balai</a></span>
                             <span class="info-box-number">
                                         {{$wilayah->balai->count()}}
                                         <small>balai</small>
@@ -29,7 +29,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-building"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text"><a href="/satker">Jumlah Satker</a></span>
+                                <span class="info-box-text">Jumlah Satker</a></span>
                                 <span class="info-box-number">{{$wilayah->satker->count()}}<small>satker</small></span>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text"><a href="/paket">Jumlah Paket</a></span>
+                            <span class="info-box-text">Jumlah Paket</a></span>
                             <span class="info-box-number">{{$data_rekap->count()}}<small>paket</small></span>
                         </div>
                     </div>

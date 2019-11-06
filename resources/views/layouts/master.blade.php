@@ -345,7 +345,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="float-right d-none d-sm-inline">
       Anything you want
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018-2019 <a href="https://pusatab.com">e-Pank</a>.</strong> All rights reserved.
   </footer>
 </div>
 

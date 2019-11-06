@@ -12,7 +12,7 @@
 		}
 	</style>
 	<center>
-		<h5>Progres Balai </h4>		
+		<h5>PROGRES {{$balai->nmbalai}} </h4>		
 	</center>
         <table class="table table-hover table-bordered">
             <tbody>
@@ -39,6 +39,16 @@
                 </tr>
                 
             @endforeach
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>{{number_format($data_rekap->sum('pagurmp'))}}</td>
+                    <td>{{number_format($data_rekap->sum('keuangan'))}}</td>
+                    <td class="text-right">{{number_format(($data_rekap->sum('keuangan')/$data_rekap->sum('pagurmp')*100),2)}}</td>
+                <td class="text-right">{{number_format($data_rekap->avg('progres_fisik'),2)}}</td>
+                </tr>
+            </tfoot>
             </tbody>
         </table>
     </body>

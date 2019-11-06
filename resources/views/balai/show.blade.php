@@ -17,7 +17,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-building"></i></span>                
                         <div class="info-box-content">
-                            <span class="info-box-text"><a href="/balai">Satker</a></span>
+                            <span class="info-box-text">Satker</a></span>
                             <span class="info-box-number">
                                         {{$satker->satker->count()}}
                                         <small>satker</small>
@@ -31,7 +31,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text"><a href="/paket">Jumlah Paket</a></span>
+                            <span class="info-box-text">Jumlah Paket</a></span>
                             <span class="info-box-number">{{$balai->paket->count()}}<small>paket</small></span>
                         </div>
                     </div>
@@ -124,7 +124,6 @@
                                 <th>Keuangan</th>
                                 <th>Progres Keuangan</th>
                                 <th>Rencana Fisik</th>
-                                <th>Kode Output</th>
                                 <th>Modify</th>
                                 
                             </tr>
@@ -138,22 +137,21 @@
                                 <td class="text-right">{{number_format($balai->keuangan)}}</td>
                                 <td class="text-right">{{number_format((($balai->keuangan/$balai->pagurmp)*100),2)}}</td>
                                 <td class="text-right">{{number_format(($balai->progres_fisik),2)}}</td>
-                                <td>{{$balai->tblkdoutput}}</td>
                                 <td>
                                     <a href="/paket/{{$balai->id}}/edit">
                                         <i class="fa fa-edit blue"></i>
                                     </a>
-                                    /
+                                    {{-- /
                                     <a href="/paket/{{$balai->id}}/delete">
                                         <i class="fa fa-trash red" onclick="return confirm('Yakin data mau dihapus')"></i>
-                                    </a>
+                                    </a> --}}
                                 </td>
                             </tr>
                             
                         @endforeach
                         </tbody>
                     </table>
-                    {{-- {{$wilayahall->links()}} --}}
+                    {{-- {{$satker->links()}} --}}
                 </div>        
             </div>       
         </div>    

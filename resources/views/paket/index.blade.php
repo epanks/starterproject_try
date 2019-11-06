@@ -122,10 +122,10 @@
                                     <a href="/paket/{{$paket->id}}/edit">
                                         <i class="fa fa-edit blue"></i>
                                     </a>
-                                    /
+                                    {{-- /
                                     <a href="/paket/{{$paket->id}}/delete">
                                         <i class="fa fa-trash red" onclick="return confirm('Yakin data mau dihapus')"></i>
-                                    </a>
+                                    </a> --}}
                                 </td>
                                 
                             </tr>
