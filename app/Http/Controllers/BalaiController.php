@@ -70,7 +70,26 @@ class BalaiController extends Controller
             ->where('balai.id',$id)
             ->get();
  
-    	$pdf = PDF::loadview('/balai/paket_balai_pdf',['balai'=>$balai,'satker'=>$satker,'data_rekap'=>$data_rekap]);
-    	return $pdf->stream();
+    	$pdf = PDF::loadview('/balai/paket_balai_pdf',['balai'=>$balai,'satker'=>$satker,'data_rekap'=>$data_rekap])->setPaper('a4','landscape');
+        dd($pdf);
+        return $pdf->stream();
     }
+    public function cetak_pdf2($id)
+    {
+        $balai=Balai::find($id);
+        $satker=Balai::with('satker','paket')->find($id);
+        $data_rekap = DB::table('balai')
+            ->join('satker','balai.id','=','satker.balai_id')
+            ->join('paket','satker.kdsatker','=','paket.kdsatker')
+            ->join('tblkdoutput','paket.kdoutput','=','tblkdoutput.kdoutput')
+            ->select('wilayah.*','balai.*','paket.*','tblkdoutput.*')
+            ->select('balai.*','paket.*','tblkdoutput.*')
+            ->where('balai.id',$id)
+            ->get();
+ 
+            //dd($satker);
+    	$pdf = PDF::loadview('/balai/paket_balai_pdf2',['balai'=>$balai,'satker'=>$satker,'data_rekap'=>$data_rekap])->setPaper('a4','landscape');
+        return $pdf->stream();
+    }
+    
 }
