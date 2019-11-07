@@ -25,18 +25,16 @@
                     <th>Rencana Fisik</th>
                     
                 </tr>
-
-            @foreach ($balai as $balai1)
                 <tr>
-                    <td>{{$balai->id}}</td>
+                    <td></td>
                     <td>{{$balai->nmbalai}}</td>
+                </tr>
+                <tr>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    
-                    @foreach ($satker->paket as $no => $balai)      
-                    
+                    <td>{{$balai->satker}}</td>
+                </tr>
+                   
+                @foreach ($satker->paket as $no => $balai)      
                     <tr>
                         <td>{{++$no}}</td>
                         <td>{{$balai->nmpaket}}</td>
@@ -47,7 +45,7 @@
                         
                     </tr>
                     
-                    @endforeach
+                @endforeach
                     <tfoot>
                         <tr>
                             <td></td>
@@ -58,8 +56,6 @@
                             <td class="text-right">{{number_format($data_rekap->avg('progres_fisik'),2)}}</td>
                         </tr>
                     </tfoot>
-                </tr>
-            @endforeach 
             </tbody>
         </table>
     </body>

@@ -71,7 +71,7 @@ class BalaiController extends Controller
             ->get();
  
     	$pdf = PDF::loadview('/balai/paket_balai_pdf',['balai'=>$balai,'satker'=>$satker,'data_rekap'=>$data_rekap])->setPaper('a4','landscape');
-        dd($pdf);
+        //dd($pdf);
         return $pdf->stream();
     }
     public function cetak_pdf2($id)

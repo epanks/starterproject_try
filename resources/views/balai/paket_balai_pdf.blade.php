@@ -22,7 +22,7 @@
                     <th>Pagu</th>
                     <th>Keuangan</th>
                     <th>Progres Keuangan</th>
-                    <th>Rencana Fisik</th>
+                    <th>Progres Fisik</th>
                     
                 </tr>
 
