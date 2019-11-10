@@ -101,12 +101,56 @@
             </div>
         </div>
     </div>
+    {{-- <div class="row mt-2">
+        <div class="col-md-6">
+            <h3>Pilih Kode Output</h3>
+        <form action="{{route('balai.showoutput')}}" method="post"></form>
+            {{csrf_field()}}
+            <div class="col-3">
+                <div class="checkbox">
+                    <label for="">
+                        <input type="checkbox" name="kdoutput[]" id="" value="001"> Perencanaan
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="">
+                        <input type="checkbox" name="kdoutput[]" id="" value="002"> Air Tanah
+                    </label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="checkbox">
+                    <label for="">
+                        <input type="checkbox" name="kdoutput[]" id="" value="003"> Air Baku
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="">
+                        <input type="checkbox" name="kdoutput[]" id="" value="951"> AP
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-info" type="submit"> OK</button>
+        </div>    
+    </div> --}}
+
+
     <div class="row mt-3">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Daftar Paket</h3>
                     <div class="card-tools">
+                        {{-- @foreach ($kdoutput as $item)
+                        <select onchange="showoutput(this.value)">
+                             @if($item->kdoutput == $data_rekap->get('kdoutput')) 
+                        <option value="{{$item->kdoutput}}">{{$item->nmoutput}}</option>
+                        @else
+                        <option value="{{$item->kdoutput}}">{{$item->nmoutput}}</option>
+                        @endif
+                    </select>
+                        @endforeach --}}
+                            <a href="/wilayah/{{ $wilayah->id }}" class="btn btn-primary" >Back</a>
                             <a href="/balai/{{ $balai->id }}/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
                         <a href="/create_paket/{{ $balai->id }}" class="btn btn-success">
                             Add New
@@ -119,7 +163,7 @@
                         <tbody>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Satker</th>
+                                <th>Nama Paket</th>
                                 <th>Pagu</th>
                                 <th>Keuangan</th>
                                 <th>Progres Keuangan</th>
@@ -129,7 +173,6 @@
                             </tr>
     
                         @foreach ($satker->paket as $no => $balai)      
-                           
                             <tr>
                                 <td>{{++$no}}</td>
                                 <td><a href="/paket/{{$balai->id}}">{{$balai->nmpaket}}</td>

@@ -8,6 +8,9 @@ use App\Wilayah;
 use App\Satker;
 use App\Paket;
 use App\Tblkdoutput;
+use App\Tblabat;
+use App\Tblabjiat;
+use App\Tblrehabbangun;
 use DB;
 use PDF;
 
@@ -32,7 +35,8 @@ class BalaiController extends Controller
 
     public function show($id)
     {   $balai=Balai::find($id);
-        $satker=Balai::with('satker','paket')->find($id);
+        $satker=Balai::with('satker','paket','wilayah')->find($id);
+        $wilayah=$satker->wilayah;
         //$percent=Paket::select('')
         $data_rekap = DB::table('balai')
             ->join('satker','balai.id','=','satker.balai_id')
@@ -42,21 +46,48 @@ class BalaiController extends Controller
             ->select('balai.*','paket.*','tblkdoutput.*')
             ->where('balai.id',$id)
             ->get();
-        
+      
+        //dd($wilayah);
+        //dd($data_rekap);
+        return view('balai.show', compact('wilayah','balai','satker','data_rekap'));
+    }
 
-        $data_rekap1 = DB::table('wilayah')
-            ->join('balai','wilayah.id','=','balai.wilayah_id')
+    public function showoutput($id,$kdoutput)
+    {   
+        $balai=Balai::find($id);
+        $satker=Balai::with('satker','paket','wilayah')->find($id);
+        $wilayah=$satker->wilayah;
+        //$percent=Paket::select('')
+        $data_rekap = DB::table('balai')
             ->join('satker','balai.id','=','satker.balai_id')
             ->join('paket','satker.kdsatker','=','paket.kdsatker')
-            ->select('wilayah.*','balai.*','paket.*')
-            ->where('wilayah_id',$id)
-            ->groupBy('nmbalai')
-            ->orderBy('balai.id','asc')
-            ->first();
-        //dd($satker);
+            ->join('tblkdoutput','paket.kdoutput','=','tblkdoutput.kdoutput')
+            ->select('wilayah.*','balai.*','paket.*','tblkdoutput.*')
+            ->select('balai.*','paket.*','tblkdoutput.*')
+            ->where('balai.id',$id)
+            ->orWhere('kdoutput',$kdoutput)
+            ->get();
+      $kdoutput=Tblkdoutput::all();
+        //dd($wilayah);
         //dd($data_rekap);
-        return view('balai.show', compact('balai','satker','data_rekap','data_rekap1'));
+        return view('balai.show', compact('wilayah','balai','satker','data_rekap','kdoutput'));
     }
+
+    public function kdoutput()
+    {           
+        $tblkdoutput=Tblkdoutput::all();
+        $tblabat=Tblabat::all();
+        $tblabjiat=Tblabjiat::all();
+        $tblrehabbangun=Tblrehabbangun::all();
+        
+        //$tblabjiat=$data_rekap;
+        //dd($tblabjiat);
+        //dd($data_rekap);
+        return view('balai.show', compact('data_rekap','tblkdoutput','tblabjiat','tblabat','tblrehabbangun'));
+    }
+
+
+
     public function cetak_pdf($id)
     {
         $balai=Balai::find($id);

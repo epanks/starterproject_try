@@ -11,7 +11,7 @@
         <div class="card-header">
             <h3 class="card-title">Daftar Balai</h3>
         </div>
-        <form action="/create_paket/{{ $dtmasalah->id }}"  method="POST">
+        <form action="/create_paket/{{ $dtsatker1->id }}"  method="POST">
             {{csrf_field()}}
             <div class="form-group{{$errors->has('kdsatker') ? 'has-error' : ''}}">
                 <label for="kdsatker">Select Satker</label>

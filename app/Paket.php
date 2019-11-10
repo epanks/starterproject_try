@@ -32,6 +32,11 @@ class Paket extends Model
         return $this->belongsTo(Tblsatoutput::class,'satoutput','satoutput');
     }
 
+    public function tblkdoutput()
+    {
+        return $this->belongsTo(Tblkdoutput::class,'kdoutput','kdoutput');
+    }
+
     public function wilayah()
     {
         return $this->belongsToThrough(Wilayah::class,

@@ -14,6 +14,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/wilayah/{id}','BalaiController@balai');
 
 Route::get('/balai/{id}', 'BalaiController@show')->name('balai.show');
+Route::get('/balai/{id}/showoutput', 'BalaiController@showoutput')->name('balai.showoutput');
 Route::get('/balai/{id}/cetak_pdf', 'BalaiController@cetak_pdf');
 Route::get('/balai/{id}/cetak_pdf2', 'BalaiController@cetak_pdf2');
 

@@ -43,8 +43,8 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td>{{number_format($data_rekap->sum('pagurmp'))}}</td>
-                    <td>{{number_format($data_rekap->sum('keuangan'))}}</td>
+                    <td class="text-right">{{number_format($data_rekap->sum('pagurmp'))}}</td>
+                    <td class="text-right">{{number_format($data_rekap->sum('keuangan'))}}</td>
                     <td class="text-right">{{number_format(($data_rekap->sum('keuangan')/$data_rekap->sum('pagurmp')*100),2)}}</td>
                 <td class="text-right">{{number_format($data_rekap->avg('progres_fisik'),2)}}</td>
                 </tr>

@@ -9,15 +9,15 @@
             <img class="profile-user-img img-responsive text-center" src="/img/logopu.jpg" alt="User profile picture">  
         </div>  
             <h1 class="profile-username text-center">Kementerian Pekerjaan Umum dan Perumahan Rakyat</h1>  
-            <p class="text-muted text-center">Pusat Air Tanah dan Air Baku</p>
-            <h1 class="profile-username text-center">{{{$paket->nmpaket}}}</h1>
+    <p class="text-muted text-center">Satker: {{$balai->nmsatker}}</p>
+            <h1 class="profile-username text-center">{{$paket->nmpaket}}}</h1>
         </div>
             <div class="row mt-5">                
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-dollar-sign"></i></span>                
                         <div class="info-box-content">
-                            <span class="info-box-text"><a href="/balai">Pagu</a></span>
+                            <span class="info-box-text">Pagu</span>
                             <span class="info-box-number">
                                 <small>Rp.</small>
                                         {{number_format($paket->pagurmp)}}
@@ -29,7 +29,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-gas-pump"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text"><a href="/paket">Output</a></span>
+                            <span class="info-box-text">Output</span>
                             <span class="info-box-number">{{$paket->trgoutput}}
                                     <small>{{$output->nmsatoutput}}</small>
                             </span>
@@ -40,7 +40,7 @@
                     <div class="info-box mb-3">
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tint"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text"><a href="/paket">Outcome</a></span>
+                            <span class="info-box-text">Outcome</span>
                             <span class="info-box-number">{{$paket->trgoutcome}}
                                     <small> {{$paket->satoutcome}}</small>
                             </span>

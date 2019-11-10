@@ -29,12 +29,12 @@ class PaketController extends Controller
     public function show($id)
     {
         
-        $paket=Paket::with('masalah','tblsatoutput')->find($id);
+        $paket=Paket::with('masalah','tblsatoutput','satker','balai')->find($id);
         $output=$paket->tblsatoutput;
-        
-        //dd($output);
+        $balai=$paket->satker;
+        //dd($balai);
         //dd($paket);
-        return view('paket.show', compact('paket','output'));
+        return view('paket.show', compact('balai','paket','output'));
     }
 
     public function create($id)
@@ -44,7 +44,7 @@ class PaketController extends Controller
         $dtsatoutput=Tblsatoutput::get();
         $dtkdoutput=Tblkdoutput::get(); 
         //dd($dtsatker1);
-        return view('paket.create',compact('dtsatker','dtsatker1','dtsatoutput','dtkdoutput'));
+        return view('paket.create',compact('balai','dtsatker','dtsatker1','dtsatoutput','dtkdoutput'));
     }
 
     public function store(Request $request, $id)
