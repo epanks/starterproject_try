@@ -140,16 +140,27 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Daftar Paket</h3>
-                    <div class="card-tools">
-                        {{-- @foreach ($kdoutput as $item)
-                        <select onchange="showoutput(this.value)">
-                             @if($item->kdoutput == $data_rekap->get('kdoutput')) 
-                        <option value="{{$item->kdoutput}}">{{$item->nmoutput}}</option>
-                        @else
-                        <option value="{{$item->kdoutput}}">{{$item->nmoutput}}</option>
-                        @endif
-                    </select>
-                        @endforeach --}}
+                    <div class="form-group">
+                            <select name="nmabat" id="nmabat" class="form-control input-lg dynamic" data-dependent="nmrehabbangun">
+                             <option value="">Select Kode Output</option>
+                             @foreach($tblkdoutput2 as $kdoutput)
+                             <option value="{{ $kdoutput->nmabat}}">{{ $kdoutput->nmabat }}</option>
+                             @endforeach
+                            </select>
+                           </div>
+                           <br />
+                           <div class="form-group">
+                            <select name="nmrehabbangun" id="nmrehabbangun" class="form-control input-lg dynamic" data-dependent="nmoutput">
+                             <option value="">Select Rehab/Pembangunan</option>
+                            </select>
+                           </div>
+                           <br />
+                           <div class="form-group">
+                            <select name="nmoutput" id="nmoutput" class="form-control input-lg">
+                             <option value="">Select Output</option>
+                            </select>
+                           </div>
+                    <div class="card-tools">                            
                             <a href="/wilayah/{{ $wilayah->id }}" class="btn btn-primary" >Back</a>
                             <a href="/balai/{{ $balai->id }}/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
                         <a href="/create_paket/{{ $balai->id }}" class="btn btn-success">
@@ -201,4 +212,42 @@
     </div>    
 </div>
 
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function(){
+    
+     $('.dynamic').change(function(){
+      if($(this).val() != '')
+      {
+       var select = $(this).attr("id");
+       var value = $(this).val();
+       var dependent = $(this).data('dependent');
+       var _token = $('input[name="_token"]').val();
+       $.ajax({
+        url:"{{ route('balaicontroller.kdoutput') }}",
+        method:"POST",
+        data:{select:select, value:value, _token:_token, dependent:dependent},
+        success:function(result)
+        {
+         $('#'+dependent).html(result);
+        }
+    
+       })
+      }
+     });
+    
+     $('#abat').change(function(){
+      $('#nmrehabbangun').val('');
+      $('#nmoutput').val('');
+     });
+    
+     $('#nmrehabbangun').change(function(){
+      $('#nmoutput').val('');
+     });
+     
+    
+    });
+    </script>
 @endsection

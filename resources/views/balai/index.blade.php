@@ -10,7 +10,9 @@
         </div>  
             <h1 class="profile-username text-center">Kementerian Pekerjaan Umum dan Perumahan Rakyat</h1>  
             <p class="text-muted text-center">Pusat Air Tanah dan Air Baku</p>
-            <h1 class="profile-username text-center">{{{$wilayah->nmwilayah}}}</h1>
+            <h1 class="profile-username text-center">
+                {{$wilayah->nmwilayah}}
+            </h1>
         </div>
             <div class="row mt-5">                
                 <div class="col-12 col-sm-6 col-md-3">
